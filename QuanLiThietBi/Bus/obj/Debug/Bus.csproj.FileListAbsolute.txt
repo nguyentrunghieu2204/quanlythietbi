@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\Bus.dll.config
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\Bus.dll
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\Bus.pdb
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\Model.dll
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\Model.pdb
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\obj\Debug\Bus.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\obj\Debug\Bus.dll
+C:\Users\Administrator\Documents\QuanLiThietBi\Bus\obj\Debug\Bus.pdb

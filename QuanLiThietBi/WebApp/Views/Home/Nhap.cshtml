@@ -1,0 +1,190 @@
+﻿@model IEnumerable<Model.PHIEUNHAP>
+@{
+    ViewBag.Title = "PhieuNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<script>
+    function luachon1() {
+        var luachon = document.getElementById("chonnhacungcap").value;
+        var temp = document.getElementById("trongtruong");
+        var temp2 = document.getElementById("ngoaitruong");
+        if (luachon == "trongtruong") {
+            temp.style.display = "block";
+            temp2.style.display = "none";
+        }
+        else {
+            temp.style.display = "none";
+            temp2.style.display = "block";
+        }
+    }
+</script>
+<script>
+    function themthietbi()
+    {
+        var mathietbi = document.getElementById("thietbi").value;
+        var soluong = Number(document.getElementById("soluong1").value);
+        var tinhtrang = document.getElementById("tinhtrang").value;
+        var tinhtrang1="";
+        if (tinhtrang == "moi")
+        {
+            tinhtrang1 = "Mới";
+        }
+        if (tinhtrang == "dasudung") {
+            tinhtrang1 = "Đã sử dụng";
+        }
+
+        if (tinhtrang == "hu") {
+            tinhtrang1 = "Hư";
+        }
+
+        
+     //   var tenthietbi = document.getElementById("thietbi").value;
+        var arr = mathietbi.split(";");
+        var rows = "";
+        rows += "<td>"
+            + "<input type='button' onclick='xoadong(this)' value='Xóa'>" + "</td><td>"
+        + arr[0] + "<input type='hidden' name='mathietbi' value='" + arr[0] + "'>" + "</td><td>"
+        + arr[1] + "<input type='hidden' name='tenthietbi' value='" + arr[1] + "'>" + "</td><td>"
+        + soluong + "<input type='hidden' name='soluong' value='" + soluong + "'>" + "</td><td>"
+        + tinhtrang1 + "<input type='hidden' name='tinhtrang' value='" + tinhtrang + "'>" + "</td><td>"
+
+        var tbody = document.querySelector("#temp tbody");
+        var tr = document.createElement("tr");
+        tr.innerHTML = rows;
+        tbody.appendChild(tr);
+    }
+    function xoadong(r) {
+        var hoi = confirm("Bạn có chắc chắn muốn xóa?");
+        if (hoi == true) {
+            var i = r.parentNode.parentNode.rowIndex;
+
+            document.getElementById("temp").deleteRow(i);
+            for (var j = i; j < table.rows.length; j++) {
+                table.rows[j].cells[0].firstChild.innerHTML = j - 1;
+            }
+        }
+    }
+
+</script>
+<div id="TieuDe">
+    <h1 style="text-align:center">Quản Lí Nhập Thiết Bị</h1>
+</div>
+<div id="PhieuNhap">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Nhập Thiết Bị
+    </button>
+    @Html.ValidationSummary()
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Phiếu Nhập</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("phieunhap", "Home", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label> Ngày Nhập</label>
+                            <input type="date" name="ngaynhap" class="form-control" />
+                        </div>
+                        <label>Nhà Cung Cấp</label>
+                        <div>
+                            <select id="chonnhacungcap" onchange="luachon1()" class="form-control" name="luachon">
+                                <option value="trongtruong">Đơn Vị Trong Trường</option>
+                                <option value="ngoaitruong">Đơn Vị Nhà Cung Cấp</option>
+                            </select>
+                        </div>
+                        <br />
+                        <div class="form-group" id="trongtruong">
+                            @Html.DropDownList("ID_DonVi", null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group" style="display:none" id="ngoaitruong">
+                            @Html.DropDownList("ID_NhaCC", null, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Tình trạng</label>
+                            <select id="tinhtrang" name="tinhtrang" class="form-control">
+                                <option value="moi">Mới</option>
+                                <option value="dasudung">Đã sử dụng</option>
+                                <option value="hu">Hư</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Thiết Bị Cần Nhập</label>
+                            <select id="thietbi" class="form-control">
+                                @foreach (Model.THIETBI a in ViewBag.ThietBi)
+                                {
+                                    <option value="@a.ID;@a.TEN">@a.TEN</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Số Lượng</label>
+                            <input type="text" name="soluong1" class="form-control" id="soluong1" />
+                        </div>
+                        //nut them vao chi tiet
+                        <button type="button" class="btn btn-default" onclick="themthietbi()">Thêm</button>
+                        <h4>Thông tin phiếu giao</h4>
+                        <table id="temp" class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Xóa</th>
+                                    <th>Mã Thiết Bị</th>
+                                    <th>Tên Thiết Bị</th>
+                                    <th>Số Lượng</th>
+                                    <th>Tình trạng</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Nhập Thiết Bị</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />                 
+<div id="ThietBiDaNhap">
+    <div class="col-lg-12" style="border-right:double">
+        <h4>Lịch Sử Nhập</h4>
+        <table class="table table-responsive">
+            <tr>
+                <th>Mã Phiếu Nhập</th>
+                <th>Nhà Cung Cấp</th>
+                <th>Ngày Nhập</th>
+                <th></th>
+            </tr>
+            @if (Model.Count() != 0)
+            {
+                foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.ID</td>
+                        @if (i.NHACUNGCAP != null)
+                    {
+                            <td>@i.NHACUNGCAP.Ten</td>
+                        }
+                        else
+                        {
+                            <td>@i.DONVI.Ten</td>
+                        }
+
+                        <td>@Html.FormatValue(i.NgayNhap, "{0:dd/MM/yyyy}")</td>
+                        <td>
+                            <a href="/Home/chitietphieunhap?id=@i.ID">Chi tiết</a>
+                        </td>
+
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

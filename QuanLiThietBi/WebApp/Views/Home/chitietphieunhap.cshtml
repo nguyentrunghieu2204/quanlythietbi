@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "chitietphieunhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<h2>Chi Tiết Phiếu Nhập</h2>
+<div>
+
+    <div id="ChiTiet">
+        <div>
+            <table class="table table-responsive">
+                <tr>
+                    <th>Mã phiếu nhập</th>
+                    <th>Thiết bị</th>
+                    <th>Số Lượng</th>
+                    <th>Đơn vị giao</th>
+                </tr>
+                @foreach (Model.CHITIETPHIEUNHAP i in ViewBag.chitiet)
+                {
+                    <tr>
+                        <td>@i.ID_PHIEUNHAN</td>
+                        <td>@i.THIETBI.TEN</td>
+                        <td>@i.soluong</td>
+                        @if (i.PHIEUNHAP.NHACUNGCAP != null)
+                        {
+                            <td>@i.PHIEUNHAP.NHACUNGCAP.Ten</td>
+                        }
+                        else
+                        {
+                            <td>@i.PHIEUNHAP.DONVI.Ten</td>
+                        }
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

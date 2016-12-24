@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0efd0959ea1a4a7db7bd8447d4f718b7" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLiThietBiModel.CHITIETPHIEUGIAO" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.CHITIETPHIEUNHAP" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.DONVI" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.LOAITHIETBI" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.PHIEUGIAO" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.PHIEUNHAP" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.PHONGQUANTRI" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.THIETBI" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiThietBiModel.TINHTRANG" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__CHITIETPH__ID_PH__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__CHITIETPH__ID_Th__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__CHITIETPH__ID_PH__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__CHITIETPH__ID_Th__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__PHIEUNHAP__ID_Do__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__THIETBI__ID_Loai__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__PHIEUNHAP__ID_Nh__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__PHIEUGIAO__ID_Qu__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiThietBiModel.FK__THIETBI__ID_Tinh__173876EA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
